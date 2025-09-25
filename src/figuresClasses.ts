@@ -20,8 +20,22 @@ export class Triangle implements Figure {
   c: number;
 
   constructor(color: Color, a: number, b: number, c: number) {
-    if (a <= 0 || b <= 0 || c <= 0) {
-      throw new Error('Triangle sides must be greater than 0');
+    if (a <= 0) {
+      throw new Error(
+        `Triangle side "a" must be greater than 0, received: ${a}`,
+      );
+    }
+
+    if (b <= 0) {
+      throw new Error(
+        `Triangle side "b" must be greater than 0, received: ${b}`,
+      );
+    }
+
+    if (c <= 0) {
+      throw new Error(
+        `Triangle side "c" must be greater than 0, received: ${c}`,
+      );
     }
 
     // O maior lado não pode ser maior ou igual à soma dos outros dois
@@ -54,7 +68,9 @@ export class Circle implements Figure {
 
   constructor(color: Color, radius: number) {
     if (radius <= 0) {
-      throw new Error('Circle radius must be greater than 0');
+      throw new Error(
+        `Circle radius must be greater than 0, received: ${radius}`,
+      );
     }
 
     this.color = color;
@@ -78,8 +94,12 @@ export class Rectangle implements Figure {
   height: number;
 
   constructor(color: Color, width: number, height: number) {
-    if (width <= 0 || height <= 0) {
-      throw new Error('Rectangle width and height must be greater than 0');
+    if (width <= 0) {
+      throw new Error(`Rectangle width must be > 0, received: ${width}`);
+    }
+
+    if (height <= 0) {
+      throw new Error(`Rectangle height must be > 0, received: ${height}`);
     }
 
     this.color = color;
